@@ -14,19 +14,19 @@ This is the source code for a multi-user blog, hosted with the Google App Engine
 
 - Dependencies:
 
-* Frontend
-  - jQuery
-  - Bootstrap Framework
-  - Fontawesome
-  - Google Fonts
-      - Headings and Post Title: Pathway Gothic One
-      - Posts: Source Serif Pro
-      - Comment Title: Roboto
-      - Comment Content: Goudy Bookletter 1911
+  * Frontend
+    - jQuery
+    - Bootstrap Framework
+    - Fontawesome
+    - Google Fonts
+        - Headings and Post Title: Pathway Gothic One
+        - Posts: Source Serif Pro
+        - Comment Title: Roboto
+        - Comment Content: Goudy Bookletter 1911
 
-* Backend
-  - Jinja2 for templating
-  - GAE Framework
-  - NDB datastore
-  - Hashlib and hmac for hashing
-  - gae-pytz for setting correct date and time zone, for posts and comments
+  * Backend
+    - Jinja2 for templating
+    - GAE Framework
+    - NDB datastore
+    - Hashlib and hmac for hashing
+    - gae-pytz for setting correct date and time zone, for posts and comments
