@@ -1,10 +1,12 @@
 # Responsive - Multi User Blog
 
-This is the source code for a multi-user blog, hosted with the Google App Engine (GAE) at https://mu-blog-5551.appspot.com/.
+This is the source code for a multi-user blog, hosted with the Google App Engine (GAE) at 
+
+  https://mu-blog-5551.appspot.com/.
 
 - The blog allows users to create secure accounts (hashed passwords, secure cookies).
 
-- Users can let their heart out without really the fear of disclosing their identity, it is an emotional outlet after a long day of <whatever>!
+- Users can let their heart out without really the fear of disclosing their identity, it is an emotional outlet after a long day of work/play/study/fun!
 
 - Users can like/dislike and comment on other's posts (ONLY).
 
@@ -12,10 +14,15 @@ This is the source code for a multi-user blog, hosted with the Google App Engine
 
 - Dependencies:
 
-* Frontent
+* Frontend
   - jQuery
-  - Bootstrap Library
+  - Bootstrap Framework
+  - Fontawesome
   - Google Fonts
+      - Headings and Post Title: Pathway Gothic One
+      - Posts: Source Serif Pro
+      - Comment Title: Roboto
+      - Comment Content: Goudy Bookletter 1911
 
 * Backend
   - Jinja2 for templating
