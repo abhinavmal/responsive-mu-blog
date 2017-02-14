@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+      <h2 class="other-text">The following post has been deleted!</h2>
+      <h5 class="other-text"> <a href="/">Home</a></h5>
+      <hr>
+      <hr>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-8 blog-title">
+        <h2 >{{title}}</h2>
+    </div>
+    <div class="col-md-4 blog-title text-right">
+        <h5>{{date}} / {{time}}</h5>
+        <h5>By {{author.username}}</h5>
+
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <pre class="blog-post blog-post-style"><h5>{{body}}</h5></pre>
+        <hr>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

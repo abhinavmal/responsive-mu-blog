@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 blog-title">
+        <h2>{{post.title}}</h2>
+    </div>
+    <div class="col-md-4 blog-title text-right">
+        <h5>{{post.get_date()}} at {{post.get_time()}}</h5>
+        <h5>By {{post.author.username}}</h5>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <xmp class="blog-post blog-post-style">{{post.body}}</xmp>
+        <hr>
+    </div>
+    <div class="col-md-6" id='{{post_id}}'>
+        <h5>
+            <a href="#">
+                <i class="fa fa-thumbs-up"  aria-hidden="true" onclick="like('{{post_id}}','{{ user.username }}','{{ post.author.username }}', 'like')"  id="like-button"> <likedislike>{{post.num_likes}}</likedislike></i></a> |
+            <a href="#"><i class="fa fa-thumbs-down" aria-hidden="true" onclick="like('{{post_id}}','{{ user.username }}','{{ post.author.username }}', 'dislike')" id="dislike-button"> <likedislike>{{post.num_dislikes}}</likedislike></i>
+            </a>
+        </h5>
+    </div>
+    <div class="col-md-6 text-right other-text">
+        {% if author_is_user %}
+            <h5> <a href="/edit-post/{{post_id}}">Edit Post</a> /
+             <a href="/delete-post/{{post_id}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete Post</a></h5>
+        {% endif %}
+    </div>
+</div>
+<!--         <div class="form-group">
+            <h4><label for="body">Post Body:</label></h4>
+            <textarea class="form-control blog-post input-post" rows="7" name="content">{{ body }}</textarea>
+        </div> -->
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+            <h4 class="blog-title"><a href="/">Back</a></h4>
+            <hr>
+        </div>
+
+    </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group comment-title">
+                        <h4><label for="comment_input">Comment:</label></h4>
+                        <textarea class="form-control comment-content input-post" rows="3" name="comment_input"></textarea>
+                        <h5 class="error-msg">{{error_comment}}</h5>
+                        <input type="submit" class="btn btn-primary btn-lg blog-title" value="Post Comment">
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Load Previous comments -->
+{% if comments %}
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10 comment-title">
+        <h4> Previous Comments: </h4>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+{% endif %}
+{% for comment in comments %}
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        <div class="comment-class">
+            <h5 class="comment-title"><label>{{comment.author.username}} says:</label></h5>
+            <div class="text-right comment-title">{{comment.get_date()}} at {{comment.get_time()}}</div>
+            <pre class="comment-content">{{comment.content}}</pre>
+
+            {% if comment.author.username == user.username %}
+            <div class="text-right comment-title">
+                <a href="/edit-comment/{{post_id}}/{{comment.key.id()}}">Edit Comment</a> /
+                <a href="/delete-comment/{{post_id}}/{{comment.key.id()}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete Comment</a>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

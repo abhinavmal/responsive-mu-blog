@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for post in posts %}
+        <div class="row">
+            <div class="col-md-8 blog-title">
+                <a href="/singlepost/{{post.key.id()}}">
+                    <h3>{{post.title}}</h3>
+                </a>
+            </div>
+            <div class="col-md-4 text-right blog-title">
+              <h5>{{post.get_date()}} </h5>
+              <!-- at {{post.get_time()}} -->
+              <h5>- {{post.author.username}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% if post.body|length > 150 %}
+                <pre class="blog-post blog-post-style"><h4>{{post.body[:150]}}<br>...<br><a href="/singlepost/{{post.key.id()}}">See more!</a></h4></pre>
+                {% else %}
+                <pre class="blog-post blog-post-style"><h4>{{post.body}}</h4></pre>
+                {% endif %}
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}

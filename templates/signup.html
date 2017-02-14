@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row other-text">
+  <div class="col-md-12">
+    <h2>Signup</h2>
+      <hr>
+  </div>
+</div>
+
+
+<form method="post" class="signup-login-text">
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Username</h4>
+    </div>
+    <div class="col-md-4">
+      <h4><input type="text" class="form-control" name="username" value="{{username}}"></h4>
+    </div>
+    <div class="col-md-4">
+      <h5>
+        {% if username_exists_error %}
+          {{ username_exists_error }}
+        {% else %}
+          {{ username_error }}
+        {% endif %}
+      </h5>
+    </div>
+  </div>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Password</h4>
+    </div>
+    <div class="col-md-4">
+      <h4><input type="password" class="form-control" name="password" value=""></h4>
+    </div>
+    <div class="col-md-4">
+      <h5>{{ password_error_start }}</h5>
+    </div>
+  </div>
+  <hr>
+
+   <div class="row">
+    <div class="col-md-4">
+      <h4>Verify Password</h4>
+    </div>
+    <div class="col-md-4">
+      <h4><input type="password" class="form-control" name="verify" value=""></h4>
+    </div>
+    <div class="col-md-4">
+      <h5>{{ password_error }}</h5>
+    </div>
+  </div>
+  <hr>
+
+
+  <div class="row">
+     <div class="col-md-4">
+      <h4>Email (optional)</h4>
+    </div>
+    <div class="col-md-4">
+      <h4><input type="text" class="form-control" name="email" value="{{email}}"></h4>
+    </div>
+    <div class="col-md-4">
+      <h5>{{ email_error }}</h5>
+    </div>
+  </div>
+  <hr>
+
+    <div class="row">
+      <div class="col-md-12">
+        <input type="submit" class="btn btn-primary other-text">
+      </div>
+    </div>
+</form>
+
+ <!--  </body>
+
+</html> -->
+{% endblock %}

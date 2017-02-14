@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Signup</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <form method="post">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="col-md-4">
+                Username
+              </td>
+              <td class="col-md-8">
+                <input type="text" class="form-control" name="username" value="{{username}}">
+              </td>
+            </tr>
+            <tr>
+              <td class="col-md-12">
+                {% if username_exists_error %}
+                  {{ username_exists_error }}
+                {% else %}
+                  {{ username_error }}
+                {% endif %}
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                Password
+              </td>
+              <td>
+                <input type="password" class="form-control" name="password" value="">
+              </td>
+              <td>
+                {{ password_error_start }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Verify Password
+              </td>
+              <td>
+                <input type="password" class="form-control" name="verify" value="">
+              </td>
+              <td>
+                {{ password_error }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Email (optional)
+              </td>
+              <td>
+                <input type="text" class="form-control" name="email" value="{{email}}">
+              </td>
+              <td>
+                {{ email_error }}
+              </td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+
+        <input type="submit" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+ <!--  </body>
+
+</html> -->
+{% endblock %}

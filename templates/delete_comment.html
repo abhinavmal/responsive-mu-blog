@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+      <h2 class="other-text">The following comment has been deleted!</h2>
+      <h5 class="other-text"> <a href="/singlepost/{{post_id}}">Go to Permalink of Post</a></h5>
+      <hr>
+      <hr>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-8 blog-title">
+        <h2 >{{title}}</h2>
+    </div>
+    <div class="col-md-4 blog-title text-right">
+        <h5>{{date}}</h5>
+        <h5>By {{author.username}}</h5>
+
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <pre class="blog-post blog-post-style"><h5>{{body}}</h5></pre>
+        <hr>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        <div class="comment-class">
+            <h5 class="comment-title"><label>{{del_comment.author.username}} says:</label></h5>
+            <pre class="comment-content">{{del_comment.content}}</pre>
+
+        </div>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

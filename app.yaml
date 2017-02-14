@@ -1,0 +1,27 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+# - url: /.*
+#   script: main.app
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+- url: /images
+  static_dir: images
+
+- url: /.*
+  script: mublog.app
+
+
+
+libraries:
+- name: jinja2
+  version: latest
+# - name: bcrypt
+#   version: latest
+#   static_dir: lib

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A Simple Blog</title>
+    <!-- META TAGS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Asul|Cardo|Chivo|Eczar|Pathway+Gothic+One|Roboto+Mono|Rubik|Tenor+Sans|Work+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <!-- Fontawesome -->
+    <script src="https://use.fontawesome.com/5b55996c5b.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/custom.js"></script>
+    <!-- FAVICON -->
+    <!-- Free, Taken from: https://www.freefavicon.com/freefavicons/objects/iconinfo/birdie-paper-1-152-26790.html -->
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="row page-header">
+            <div class="col-md-9 blog-title">
+              <h1><a href="/">A Simple Blog</a> <small><i>for simple people</i></small></h1>
+             <!--  <h5><i>By Abhinav Malhotra</i><h5> -->
+            </div>
+            <div class="col-md-3 other-text">
+                    {% if not user %}
+                    <h4>
+                        <p id="login-signup" class="text-right" title="Login/Signup to create, comment and like posts" data-toggle="tooltip" data-placement="bottom">
+                            <a href="/login">Login</a>
+                            /
+                            <a href="/signup"> Signup </a>
+                        </p>
+                        <hr>
+                    </h4>
+
+                    {% else %}
+                    <h4>
+                         <p class="text-right">Welcome, <i>{{ user.username }}</i></p>
+                    </h4>
+                    <h5>
+                         <hr><p class="text-right"><a href="/newpost">Create New Post</a></p>
+                         <hr><p class="text-right"><a href="/logout" class="text-right"> Logout </a></p>
+                     </h5>
+                    {% endif %}
+            </div>
+        </div>
+    {% block content %}
+    {% endblock %}
+    <a id="back-to-top" href="#" class="btn btn-primary back-to-top"
+      role="button" title="Scroll to Top" data-toggle="tooltip" data-placement="top">
+      <span class="glyphicon glyphicon-chevron-up"></span>
+     </a>
+     <hr>
+     <h5 class="text-center other-text copyright-text"> <i class="fa fa-copyright" aria-hidden="true"></i> Abhinav Malhotra 2017</h5>
+    </div>
+  </body>
+</html>
