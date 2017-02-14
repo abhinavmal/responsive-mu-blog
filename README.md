@@ -13,14 +13,13 @@ This is the source code for a multi-user blog, hosted with the Google App Engine
 - Dependencies:
 
 * Frontent
-** jQuery
-** Bootstrap Library
-** Google Fonts
-
+  - jQuery
+  - Bootstrap Library
+  - Google Fonts
 
 * Backend
-** Jinja2 for templating
-** GAE Framework
-** NDB datastore
-** Hashlib and hmac for hashing
-** gae-pytz for setting time-zone
+  - Jinja2 for templating
+  - GAE Framework
+  - NDB datastore
+  - Hashlib and hmac for hashing
+  - gae-pytz for setting correct date and time zone, for posts and comments
